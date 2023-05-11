@@ -1,11 +1,17 @@
 import logo from './logo.svg';
 import './App.css';
+import Header from './components/Header';
+import Main from './components/Main';
+import Sidebar from './components/Sidebar';
 
-function Header(){
-  return <h1>Hello World!</h1>
-}
 function App() {
-  return <Header />
+  return (
+    <div>
+      <Header name="Anna" color="purple" />
+      <Main greet="Howdy!" />
+      <Sidebar greet="Hi!" />
+    </div>
+  )
 }
 
 export default App;
