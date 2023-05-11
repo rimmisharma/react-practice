@@ -1,15 +1,16 @@
-import logo from './logo.svg';
+import cat from './cat.jpg'
 import './App.css';
-import Header from './components/Header';
-import Main from './components/Main';
-import Sidebar from './components/Sidebar';
+
+function Logo(props){
+  const userPic = <img src = {cat} />; //embedded JSX expression {cat} in an HTML attribute 'src'
+  return userPic;
+}
 
 function App() {
   return (
     <div>
-      <Header name="Anna" color="purple" />
-      <Main greet="Howdy!" />
-      <Sidebar greet="Hi!" />
+      <h1>Hello Everyone.</h1>
+      <Logo/>
     </div>
   )
 }
