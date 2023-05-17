@@ -1,29 +1,23 @@
 import React, { useState } from 'react';
 import './App.css';
+import Homepage from './components/Homepage';
+import AboutMe from './components/AboutMe';
+import { Routes, Route } from 'react-router';
+import { Link } from 'react-router-dom';
 
-//Lifting state up
-function Button({count, onClick}){
+function App(){
   return (
-    <button onClick={onClick}>
-     Clicked {count} times.
-    </button>
-   );
-}
-
-
-function App() {
-  const [count, setCount] = useState(0);
-
-  function handleClick(){
-     setCount(count + 1);
-  }
-  return <div>
-    <h1>
-      Counters updated seperately
-    </h1>
-    <Button count={count} onClick={handleClick}/> <br/>
-    <Button count={count} onClick={handleClick}/>
-  </div>
+    <div className='App'>
+      <nav className='nav'>
+        <Link to='/' className='nav-item'>Homepage</Link>
+        <Link to='/about-me' className="nav-item">About Me</Link>
+      </nav>
+      <Routes>
+      <Route path="/" element={<Homepage />} />
+      <Route path="/about-me" element={<AboutMe />} />
+      </Routes>
+    </div>
+  );
 }
 
 export default App;
