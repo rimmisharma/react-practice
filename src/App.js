@@ -1,19 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
-import MealsProvider from './providers/MealsProvider';
-import MealsList from './components/MealsList';
-import Counter from './components/Counter';
+
+//Lifting state up
+function Button({count, onClick}){
+  return (
+    <button onClick={onClick}>
+     Clicked {count} times.
+    </button>
+   );
+}
 
 
 function App() {
-  return (
-   <div className="App">
-    <MealsProvider>
-      <MealsList/>
-      <Counter/>
-    </MealsProvider>
-   </div>
-  );
+  const [count, setCount] = useState(0);
+
+  function handleClick(){
+     setCount(count + 1);
+  }
+  return <div>
+    <h1>
+      Counters updated seperately
+    </h1>
+    <Button count={count} onClick={handleClick}/> <br/>
+    <Button count={count} onClick={handleClick}/>
+  </div>
 }
 
 export default App;
